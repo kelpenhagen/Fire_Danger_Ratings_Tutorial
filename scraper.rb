@@ -23,12 +23,15 @@ page.at(".danger-ratings-table").at(:tbody).search(:tr).each do |row|
 		council: row.search(:td)[5].text
 	}
 
+
 	# # Find somehing on the page using css selectors
 	p fire_area
-end
+
+
+# Write out to the sqlite database using scraperwiki library
+ScraperWiki.save_sqlite([:name, :date_scraped], fire_area)
 #
-# # Write out to the sqlite database using scraperwiki library
-# ScraperWiki.save_sqlite(["name"], {"name" => "susan", "occupation" => "software developer"})
+end
 #
 # # An arbitrary query against the database
 # ScraperWiki.select("* from data where 'name'='peter'")
