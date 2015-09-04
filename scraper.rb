@@ -14,7 +14,7 @@ page = agent.get("http://www.rfs.nsw.gov.au/fire-information/fdr-and-tobans")
 
 page.at(".danger-ratings-table").at(:tbody).search(:tr).each do |row|
 	fire_area = {
-		date_scraped: Date.today.
+		date_scraped: Date.today,
 		name: row.search(:td)[0].text,
 		today_fire_d: row.search(:td)[1].text,
 		today_toban: row.search(:td)[2].text,
